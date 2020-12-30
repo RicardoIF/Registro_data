@@ -5,7 +5,7 @@ document = str(sys.argv[1])
 repeat = True
 while repeat:
     space = "============================================================================================="
-    print("Menu\n\n1)Nuevo registro\n)2Listar\n3)Buscar\n5)Salir\n")
+    print("Menu\n\n1)Nuevo registro\n2)Listar\n3)Buscar\n4)Eliminar\n5)Editar\n6)Salir\n")
     option = int(input("Opcion: "))
     print(space)
 
@@ -24,13 +24,13 @@ while repeat:
             file.write("Cedula: " + dni + ", ")
             file.write("Nombre: " + name + ", ")
             file.write("Edad: " + age + "\n")
-            file.write(space + "\n")
             file.close()
         
     if option == 2:
 
         file = open(document, "r")
         print(file.read())
+        print(space)
         file.close()
         
     if option == 3:
@@ -38,16 +38,66 @@ while repeat:
         file = open(document, "r")
         word = str(input("Ingrese la cedula: "))
 
-        ocurrens = []
-        for line in file:
-
-            line = line.rstrip()
+        text = file.readlines()
+        for line in text:
 
             if word in line:
-                ocurrens.append(line)
-                print(ocurrens)
-        
+
+                print(line)
+        file.close()
         print(space)
 
+    if option == 4:
+
+        file = open(document, "r")
+        word = str(input("Ingrese la cedula: "))
+        text = file.readlines()
+
+        for line in text:
+
+            if word in line:
+                aux = line
+                print(aux)
+        file.close()
+
+        file = open(document, "w")
+        for pos in text:
+
+            if pos != aux:
+                file.write(pos)
+        
+        file.close()
     if option == 5:
+
+        file = open(document, "r")
+        word = str(input("Ingrese la cedula: "))
+        text = file.readlines()
+
+        for line in text:
+
+            if word in line:
+                aux = line
+                print(aux)
+        file.close()
+
+        file = open(document, "w")
+        for pos in text:
+
+            if pos != aux:
+                file.write(pos)
+            else:
+                dni = str(input("Cedula: "))
+                name = str(input("Nombre: "))
+                age = str(input("Edad: "))
+                print(space)
+                    
+                file = open(document, "w")
+                file.write("Cedula: " + dni + ", ")
+                file.write("Nombre: " + name + ", ")
+                file.write("Edad: " + age + "\n")
+                file.close()
+        file.close()
+
+
+    if option == 6:
         repeat = False

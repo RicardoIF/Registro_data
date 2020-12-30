@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Registros_de_datos/1.0.0": {
+        "runtime": {
+          "Registros_de_datos.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Registros_de_datos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

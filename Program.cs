@@ -19,9 +19,7 @@ namespace Registros_de_datos
             {
                 File.AppendAllText(args[0], output.ToString());
             }
-
             document = File.ReadAllLines(args[0]);
-
             foreach (var h in document)
             {
                 person.Add(Regist.From(h));
@@ -31,7 +29,7 @@ namespace Registros_de_datos
                 option = Menu();
                 if (option == 1)
                 {
-                    string aux = Data();
+                    string aux = Data(person);
                     Space();
 
                     Console.Write("(g) = guardar y (s) = salir: ");
@@ -80,7 +78,7 @@ namespace Registros_de_datos
                                 Console.WriteLine(p);
                                 Space();
 
-                                string aux = Data();
+                                string aux = Data(person);
                                 person.Add(Regist.From(aux));
                             }
                             pos++;
@@ -122,6 +120,12 @@ namespace Registros_de_datos
                     }
                 }
             } while (option != 6);
+            writer = new StreamWriter(args[0]);
+            foreach (Regist p in person)
+            {
+                writer.WriteLine(Regist.setData(p));
+            }
+            writer.Close();
         }
         private static int Menu()
         {
@@ -139,12 +143,26 @@ namespace Registros_de_datos
             Space();
             return result;
         }
-        private static string Data()
+        private static string Data(List<Regist> person)
         {
             Int16 data = 0;
             Int16 aux= 0;
-            Console.WriteLine("Cadula: ");
-            string dni = DataDouble();
+            bool exist;
+
+            string dni;
+            do
+            {
+                Console.WriteLine("Cadula: ");
+                dni = DataDouble();
+               
+                exist =InData(dni, person);
+                if (exist)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("La cedula ya existe!");
+                }
+                
+            } while (exist != false);
             Console.WriteLine();
 
             Console.WriteLine("Nombre: ");
@@ -197,6 +215,17 @@ namespace Registros_de_datos
             }
             string result =  dni + "," + name + "," + lastname + "," + money + "," + comfirmed + "," + data;
             return result;
+        }
+        private static bool InData(string info, List<Regist> person)
+        {
+            foreach (Regist p in person)
+            {
+                if (p.dni == info)
+                {
+                    return true;
+                }
+            }
+            return false;
         }  
         private static Int16 Code(Int16 condition = 0)
         {

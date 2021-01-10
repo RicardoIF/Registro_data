@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Ricardo D.Monkey\\.nuget\\packages\\": {}
+    "C:\\Users\\Docente\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ricardo D.Monkey\\Desktop\\Registros_de_datos\\Registros_de_datos.csproj",
+      "projectUniqueName": "C:\\Users\\Docente\\Desktop\\Endy\\Registros_de_datos\\Registros_de_datos.csproj",
       "projectName": "Registros_de_datos",
-      "projectPath": "C:\\Users\\Ricardo D.Monkey\\Desktop\\Registros_de_datos\\Registros_de_datos.csproj",
-      "packagesPath": "C:\\Users\\Ricardo D.Monkey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ricardo D.Monkey\\Desktop\\Registros_de_datos\\obj\\",
+      "projectPath": "C:\\Users\\Docente\\Desktop\\Endy\\Registros_de_datos\\Registros_de_datos.csproj",
+      "packagesPath": "C:\\Users\\Docente\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Docente\\Desktop\\Endy\\Registros_de_datos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ricardo D.Monkey\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Docente\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

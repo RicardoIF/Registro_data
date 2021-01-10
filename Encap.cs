@@ -11,11 +11,11 @@ namespace Registros_de_datos
         public string money {get;}
         public string password {get;}
 
-        public Status status = 0;
-        public Sex sex = 0;
-        public Grade grade = 0;
+        public Status status => (Status) (data & 1);
+        public Sex sex => (Sex) (data & 2);
+        public Grade grade => (Grade) (data & 12);
 
-        public int age = 0;
+        public int age => data >> 4;
 
         internal static Regist From(in string line)
         {
@@ -43,7 +43,14 @@ namespace Registros_de_datos
             password = Password;
             data = (Age << 4) |   ((int)sex) | ((int)status) | ((int) grade); 
         }
-
+        public override string ToString()
+        {
+            return $"{dni}, {name}, {lastname}, {money}, {password}, {age}, {sex}, {status}, {grade}";
+        }
+        public static string setData(Regist p)
+        {
+            return $"{p.dni}, {p.name}, {p.lastname}, {p.money}, {p.password}, {p.data}";
+        }
     }
     public enum Status {Soltero = 0, Casado = 1}
     public enum Sex {Masculino = 0, Femenino = 2}

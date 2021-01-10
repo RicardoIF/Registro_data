@@ -14,3 +14,19 @@ C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos\obj\Debug\net5.0\Registros_
 C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos\obj\Debug\net5.0\ref\Registros_de_datos.dll
 C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.pdb
 C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.genruntimeconfig.cache
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\bin\Debug\net5.0\Registros_de_datos.exe
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\bin\Debug\net5.0\Registros_de_datos.deps.json
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\bin\Debug\net5.0\Registros_de_datos.runtimeconfig.json
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\bin\Debug\net5.0\Registros_de_datos.runtimeconfig.dev.json
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\bin\Debug\net5.0\Registros_de_datos.dll
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\bin\Debug\net5.0\ref\Registros_de_datos.dll
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\bin\Debug\net5.0\Registros_de_datos.pdb
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.csprojAssemblyReference.cache
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.AssemblyInfoInputs.cache
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.AssemblyInfo.cs
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.csproj.CoreCompileInputs.cache
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.dll
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\ref\Registros_de_datos.dll
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.pdb
+C:\Users\Docente\Desktop\Endy\Registros_de_datos\obj\Debug\net5.0\Registros_de_datos.genruntimeconfig.cache

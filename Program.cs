@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
 
 namespace Registros_de_datos
 {
@@ -8,11 +9,26 @@ namespace Registros_de_datos
     {
         static void Main(string[] args)
         {
+            string[] document;
             int option = 0;
+            TextWriter writer;
+            StringBuilder output = new StringBuilder();
+            List<Regist> person = new List<Regist>();
+
+            if (!File.Exists(args[0]))
+            {
+                File.AppendAllText(args[0], output.ToString());
+            }
+
+            document = File.ReadAllLines(args[0]);
+
+            foreach (var h in document)
+            {
+                person.Add(Regist.From(h));
+            }
             do
             {
                 option = Menu();
-
                 if (option == 1)
                 {
                     string aux = Data();
@@ -23,10 +39,7 @@ namespace Registros_de_datos
 
                     if (save == "g")
                     {
-                        using (System.IO.StreamWriter file = new System.IO.StreamWriter(args[0], true))
-                        {
-                            file.WriteLine(aux);
-                        }
+                        person.Add(Regist.From(aux));
                         Space();
                         Console.WriteLine("Se ha guardado.");
                     }
@@ -39,66 +52,36 @@ namespace Registros_de_datos
                 {
                     if (File.Exists(args[0]))
                     {
-                        //@"C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos" + @"\" + 
                         Console.Write("Digite la cedula del registro a buscar: ");
-                        string finddni = Console.ReadLine();
-                        string[] lines = File.ReadAllLines(args[0]);    
-                        foreach (string line in lines)
+                        string finddni = Console.ReadLine();   
+                        foreach (Regist p in person)
                         {
-                            if(line.Contains(finddni))
+                            if(p.dni == finddni)
                             {
-                                string temporary ="";
-                                int limit = line.Length;
-                                for (int i = 0; i < limit; i++)
-                                {
-                                   if (line[i] != ',')
-                                   {
-                                       temporary = temporary + line[i];
-                                   } 
-                                   else if (line[i] == ',')
-                                   {
-                                       limit = i;
-                                   }
-                                }
                                 Space();
-                                Console.WriteLine(line + Encode(temporary));
+                                Console.WriteLine(p);
                             }
                         }
                     }
                 }
                 if (option == 3)
                 {
-                    if (File.Exists(@"C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos" + @"\" + args[0]))
+                    if (File.Exists(args[0]))
                     {
                         int pos = 0;
                         Console.Write("Digite la cedula del registro a editar: ");
-                        string finddni = Console.ReadLine();
-                        string[] lines = File.ReadAllLines(@"C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos" + @"\" + args[0]);    
-                        foreach (string line in lines)
+                        string finddni = Console.ReadLine(); 
+                        foreach (Regist p in person)
                         {
                             
-                            if(line.Contains(finddni))
+                            if(p.dni == finddni)
                             {
                                 Space();
-                                Console.WriteLine(line);
+                                Console.WriteLine(p);
                                 Space();
 
                                 string aux = Data();
-
-                                using (StreamWriter file = new StreamWriter(args[0]))
-                                {
-                                    for (int actualLine = 1; actualLine <= lines.Length; actualLine++)
-                                    {
-                                        if (actualLine - 1 == pos)
-                                        {
-                                            file.WriteLine(aux);
-                                        }
-                                        else
-                                        {
-                                            file.WriteLine(lines[actualLine - 1]);
-                                        }
-                                    }
-                                }
+                                person.Add(Regist.From(aux));
                             }
                             pos++;
                         }
@@ -106,36 +89,20 @@ namespace Registros_de_datos
                 }
                 if (option == 4)
                 {
-                    if (File.Exists(@"C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos" + @"\" + args[0]))
+                    if (File.Exists(args[0]))
                     {
                         int pos = 0;
 
                         Console.Write("Digite la cedula del registro a eliminar:");
-                        string finddni = Console.ReadLine();
-
-                        string[] lines = File.ReadAllLines(@"C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos" + @"\" + args[0]);    
-                        foreach (string line in lines)
+                        string finddni = Console.ReadLine();    
+                        foreach (Regist p in person)
                         {
                             
-                            if(line.Contains(finddni))
+                            if(p.dni == finddni)
                             {
                                 Space();
-                                Console.WriteLine(line);
-
-                                using (StreamWriter file = new StreamWriter(args[0]))
-                                {
-                                    for (int actualLine = 1; actualLine <= lines.Length; actualLine++)
-                                    {
-                                        if (actualLine - 1 == pos)
-                                        {
-
-                                        }
-                                        else
-                                        {
-                                            file.WriteLine(lines[actualLine - 1]);
-                                        }
-                                    }
-                                }
+                                Console.WriteLine(p);
+                                person.Remove(p);
                             }
                             pos++;
                         }
@@ -143,71 +110,18 @@ namespace Registros_de_datos
                 }
                 if (option == 5)
                 {
-                    if (File.Exists(@"C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos" + @"\" + args[0]))
+                    if (File.Exists(args[0]))
                     {
-                        string[] lines = File.ReadAllLines(@"C:\Users\Ricardo D.Monkey\Desktop\Registros_de_datos" + @"\" + args[0]);
-                        foreach(string line in lines)
+                        string[] lines = File.ReadAllLines(args[0]);
+                        foreach(Regist p in person)
                         {
-                            string temporary ="";
-                            int limit = line.Length;
-                            for (int i = 0; i < limit; i++)
-                            {
-                                if (line[i] != ',')
-                                {
-                                    temporary = temporary + line[i];
-                                } 
-                                else if (line[i] == ',')
-                                {
-                                    limit = i;
-                                }
-                            }
-                            Console.WriteLine(line + Encode(temporary));
+                            Console.WriteLine(p);
                             Space();
                         }
                         Console.WriteLine("Todos los registros listados an sido listados.");
                     }
                 }
             } while (option != 6);
-        }
-        private static string Encode(string code)
-        {
-            string result = "";
-            Int16 data = Convert.ToInt16(code);
-            if(data == (data | 1))
-            {
-                result = result + ", Casado";
-            }
-            else
-            {
-                result = result + ", Soltero";
-            }
-            if(data == (data | 2))
-            {
-                result = result + ", Femenino";
-            }
-            else
-            {
-                result = result + ", Masculino";
-            }
-            if(data == (data | 4))
-            {
-                result = result + ", Media";
-            }
-            else if(data == (data | 8))
-            {
-                result = result + ", Grado";
-            }
-            else if(data == (data | 12))
-            {
-                result = result + ", Posgrado";
-            }
-            else
-            {
-                result = result + ", Inicial";
-            }
-            string age = Convert.ToString(data >> 4);
-            result = result + ", " + age;
-            return result;
         }
         private static int Menu()
         {
@@ -281,7 +195,7 @@ namespace Registros_de_datos
                 comfirmed = DataPass();
                 Console.WriteLine();
             }
-            string result = data + "," + dni + "," + name + "," + lastname + "," + money + "," + comfirmed;
+            string result =  dni + "," + name + "," + lastname + "," + money + "," + comfirmed + "," + data;
             return result;
         }  
         private static Int16 Code(Int16 condition = 0)
